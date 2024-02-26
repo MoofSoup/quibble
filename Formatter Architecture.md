@@ -1,4 +1,4 @@
-Project Architecture
+# Project Architecture
 This document outlines the architecture for a web scraping application designed to automate the downloading, reformatting, and local storage of website documentation for personal reference. The application brings together a user-friendly GUI developed with Tauri, a Rust backend for efficient data processing, a Puppeteer web scraping component for downloading sites, and LLM technology for intelligent content analysis and reformatting. Core functionalities include downloading a website, reformatting the rendered data with LLM technology, and saving and accessing the reformatted data.
 Components:
 Puppeteer Scraper: Executes in a Node.js environment, responsible for navigating to specified URLs, performing dynamic web scraping, and returning the HTML content. Should be modular and easily deployable both locally and on a server.
