@@ -1,1 +1,2 @@
-- make a Quibble .
+- make a Quibble Dev Blog in ghost at [[quibble.quest]].
+- make a Quibble Obsidian Integration
