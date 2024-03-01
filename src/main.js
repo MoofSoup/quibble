@@ -1,5 +1,6 @@
 const { invoke } = window.__TAURI__.tauri;
 
+/*
 let greetInputEl;
 let greetMsgEl;
 
@@ -23,29 +24,42 @@ var btn = document.getElementById('btn')
 btn.addEventListener('click', function(){
 document.getElementById('demo').innerHTML = "Hello JavaScript";
 });
-
+*/
 async function saveText() {
   // Assuming 'textArea' is the ID of your textarea element
-  // and 'pathInput' is the ID of an input field or a predefined string for where you want to save the file.
+
   const content = document.getElementById('textArea').value;
-  const path = "output.txt"; // Or dynamic path: document.getElementById('pathInput').value;
+  const filename = "output.txt";
 
   try {
     // Invoke the 'save_text' command from the backend (Rust side)
     // The 'save_text' Rust function needs to be defined accordingly and registered with Tauri
-    await window.__TAURI__.invoke('save_text', { content, path });
+    await window.__TAURI__.invoke('save_text', { content, filename });
 
     // Handle successful save - Maybe notify the user or clear the textarea
     console.log("Text saved successfully!");
     // Optionally, clear the textarea or give feedback to the user
     // document.getElementById('textArea').value = "";
-    alert("Text was saved successfully!");
+    //alert("Text was saved successfully!");
   } catch (err) {
     // Handle any errors that occur during the save process
     console.error("Failed to save text:", err);
-    alert(`Error saving text: ${err}`);
+    //alert(`Error saving text: ${err}`);
   }
 }
 
 // Example call to saveText(), could be tied to a button click event
 document.getElementById('saveButton').addEventListener('click', saveText);
+
+const callRustFunction = async () => {
+  try {
+      const response = await window.__TAURI__.invoke('my_simple_function');
+      console.log(response); // Log the response from Rust
+      document.getElementById('response').innerText = response;
+  } catch (error) {
+      console.error('Error calling Rust function: ', error);
+  }
+}
+
+// Assuming you have a button to initiate the call
+document.getElementById('call-rust-btn').addEventListener('click', callRustFunction);
