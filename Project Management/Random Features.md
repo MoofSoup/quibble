@@ -1,0 +1,2 @@
+- file tags (in order to keep track of documents that are restructured GPT conversations)
+- search features

@@ -1,5 +1,6 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+mod core;
 /* 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
@@ -24,11 +25,12 @@ fn main() {
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }*/
+//recie
 
 use tauri::api::path::document_dir;
 use tauri::command;
 #[tauri::command]
-fn save_text(content: String, filename: String) -> Result<(), String> {
+fn savetext(content: String, filename: String) -> Result<(), String> {
     let document_path = document_dir().ok_or("Failed to find document directory")?;
     let file_path = document_path.join(filename);
     
