@@ -25,6 +25,10 @@ btn.addEventListener('click', function(){
 document.getElementById('demo').innerHTML = "Hello JavaScript";
 });
 */
+document.getElementById('js').addEventListener('click', hello);
+function hello (){
+  console.log("hello world!")
+}
 const divisadero = document.getElementById('divisadero').innerHTML;
 
 async function saveText() {

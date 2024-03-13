@@ -21,7 +21,7 @@ fn main() {
         .invoke_handler(tauri::generate_handler![save_text])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
-}*/
+}
 //recie
 
 use tauri::api::path::document_dir;
@@ -39,10 +39,16 @@ fn my_simple_function() -> String {
     println!("hello world!");
     "Function called successfully!".to_string()    
 }
+*/
+fn 
 
 fn main() {
+    let tab1: &str = "<button id='smonyx'>smonyx</button>
+    <button id='bigchrome'>bigsmallchrome</button>
+    <p>blahdy blah womp womp</p>
+    <p>lorem ipsum $ sit amore</p>";
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![my_simple_function,savetext])
+        .invoke_handler(tauri::generate_handler![])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
