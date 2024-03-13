@@ -1,0 +1,18 @@
+- how does the end user collapse messages into a thread?
+- how does the end user indicate which messages should become a part of the thread?
+- does it make sense to use an LLM to create smart threads?
+- what are the pros and cons of LLM smart threads?
+- where should I apply modal windows?
+- does it make sense to have a conversation viewer based on topic cards?
+- what is the most important action within the app, and does it make sense to turn it into a floating action button?
+- what are the main contexts of the app?
+- what workflows are accessible through the document editor context?
+- what workflows are accessible through the ai service context?
+- is there a better way to switch between the two main contexts than a sidebar like vs code?
+- what is the workflow for storing and accessing pieces of project specific context?
+- how should we switch between the markdown and plaintext states?
+- what can I learn from Discord?
+- what can I learn from Arc?
+- what can I learn from VS Code?
+- is there a way to avoid nested sidebars?
+- how much nesting is too much nesting?

@@ -25,16 +25,18 @@ btn.addEventListener('click', function(){
 document.getElementById('demo').innerHTML = "Hello JavaScript";
 });
 */
+const divisadero = document.getElementById('divisadero').innerHTML;
+
 async function saveText() {
   // Assuming 'textArea' is the ID of your textarea element
-
-  const content = document.getElementById('textArea').value;
+  const content = divisadero;
+  // const content = document.getElementById('textArea').value;
   const filename = "output.txt";
 
   try {
     // Invoke the 'save_text' command from the backend (Rust side)
     // The 'save_text' Rust function needs to be defined accordingly and registered with Tauri
-    await window.__TAURI__.invoke('save_text', { content, filename });
+    await window.__TAURI__.invoke('savetext', { content, filename });
 
     // Handle successful save - Maybe notify the user or clear the textarea
     console.log("Text saved successfully!");
@@ -63,3 +65,6 @@ const callRustFunction = async () => {
 
 // Assuming you have a button to initiate the call
 document.getElementById('call-rust-btn').addEventListener('click', callRustFunction);
+
+
+
