@@ -29,3 +29,15 @@
     - Ensure that the Git integration is unobtrusive and does not interfere with the core functionality of Quibble for users who choose not to use it.
 
 By implementing these core workflows, Quibble can provide a seamless and intuitive user experience for managing conversations, editing documents, and leveraging prompt engineering best practices. The application will cater to the diverse needs of researchers, developers, and enthusiasts while maintaining a consistent and streamlined interface. The optional Git integration and customizable settings allow users to tailor Quibble to their specific requirements, ensuring a flexible and adaptable tool for interacting with LLMs.
+
+1. Threads workflow: 
+
+
+2. new tab workflow:
+- click "new" button in bottom toolbar, opens a "new" page
+
+3. Card View workflow
+   Click "card view" icon in the nav toolbar, the main context now acts as the card view
+a "workflow"
+   
+

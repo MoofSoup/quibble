@@ -25,10 +25,19 @@ btn.addEventListener('click', function(){
 document.getElementById('demo').innerHTML = "Hello JavaScript";
 });
 */
-document.getElementById('js').addEventListener('click', hello);
-function hello (){
-  console.log("hello world!")
+
+async function docTOchat() {
+  const currentState = document.getElementById('contextWindow').innerHTML;
+
+  try {
+    await window.__TAURI__.invoke('docTOchat', { currentState });
+  }
+    catch (err) {
+    console.error("Failed to change state:", err);
+  }
 }
+
+
 const divisadero = document.getElementById('divisadero').innerHTML;
 
 async function saveText() {

@@ -40,13 +40,12 @@ fn my_simple_function() -> String {
     "Function called successfully!".to_string()    
 }
 */
-fn 
 
 fn main() {
-    let tab1: &str = "<button id='smonyx'>smonyx</button>
+    let chat: &str = r#"<button id='smonyx'>smonyx</button>
     <button id='bigchrome'>bigsmallchrome</button>
     <p>blahdy blah womp womp</p>
-    <p>lorem ipsum $ sit amore</p>";
+    <p>lorem ipsum $ sit amore</p>"#;
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![])
         .run(tauri::generate_context!())
