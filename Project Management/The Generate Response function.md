@@ -1,5 +1,19 @@
 - where do I want to handle data access in order to maintain separation of concerns?
 	 - instantiate a conversation
 	 - check out a thread
-	 - 
+- When is a thread going to be checked out?
+	- a thread needs to be checked out so that it can be passed into the get_response method
+- how will the application state controller handle talking to the apis?
+- **list of functions the app controller needs to call**
+	- get response
+- how do I know that the conversation being displayed is the most up to date conversation?
+- what functions would the application layer call in order to load a conversation?
+- how does a user message update the database?
+- when a user sends a message:
+	- what is sent to rust is a bunch of html. 
+	- This html is serialized into a series of message objects
+	- The ConversationData struct is updated, which simultaneously updates the database. 
+	- The correct thread is passed into the get_response function
+	- when the get_response function is resolved, the ConversationData struct is updated, which simultaneously updates the database
+	- the current thread is then serialized to html, and sent back to Javascript as a string
 - The generate response function is a method defined on the trait AIAssistant. It takes a mutable reference to the current active thread in a conversation, and after it returns the thread. 

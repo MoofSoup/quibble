@@ -28,3 +28,8 @@ pub struct ConversationData {
     pub threads: HashMap<i32, Vec<Thread>>,
     pub messages: HashMap<i32, Vec<Message>>,
 }
+
+pub struct ThreadData {
+    pub thread_id: i32,
+    pub messages: Vec<Message>,
+}
