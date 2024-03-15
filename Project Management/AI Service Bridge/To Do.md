@@ -1,0 +1,1 @@
+- make a prompt with annalise that asks claude how to use the existing structs to make a representation of the current conversation

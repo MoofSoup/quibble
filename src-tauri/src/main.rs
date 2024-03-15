@@ -41,6 +41,69 @@ fn my_simple_function() -> String {
 }
 */
 
+#[derive(Debug, PartialEq)]
+enum AppState {
+    DocumentView(String),
+    ChatView(String),
+}
+
+struct StateMachine {
+    current_state: AppState,
+}
+
+impl StateMachine {
+    fn transition_to_document_view(&mut self, current_state: String) -> String {
+        if self.current_state == AppState::ChatView {
+            self.current_state = AppState::DocumentView;
+            "Document View".to_string()
+        } else {
+            "Already in Document View".to_string()
+        }
+    }
+
+    fn transition_to_chat_view(&mut self) -> String {
+        if self.current_state == AppState::DocumentView {
+            self.current_state = AppState::ChatView;
+            "Chat View".to_string()
+        } else {
+            "Already in Chat View".to_string()
+        }
+    }
+
+    fn get_inactive_state(&self) -> String {
+        match self.current_state {
+            AppState::DocumentView => "Chat View".to_string(),
+            AppState::ChatView => "Document View".to_string(),
+        }
+    }
+}
+
+impl Default for StateMachine {
+    fn default() -> Self {
+        StateMachine {
+            current_state: AppState::DocumentView,
+        }
+    }
+}
+
+fn main() {
+    let mut state_machine = StateMachine::default();
+
+    // Simulate button presses and print the returned state strings
+    println!("Current state: {}", state_machine.transition_to_document_view());
+    println!("Inactive state: {}", state_machine.get_inactive_state());
+
+    println!("Current state: {}", state_machine.transition_to_chat_view());
+    println!("Inactive state: {}", state_machine.get_inactive_state());
+
+    println!("Current state: {}", state_machine.transition_to_chat_view());
+    println!("Inactive state: {}", state_machine.get_inactive_state());
+
+    println!("Current state: {}", state_machine.transition_to_document_view());
+    println!("Inactive state: {}", state_machine.get_inactive_state());
+}
+
+
 fn main() {
     let chat: &str = r#"<button id='smonyx'>smonyx</button>
     <button id='bigchrome'>bigsmallchrome</button>

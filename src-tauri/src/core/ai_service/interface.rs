@@ -8,52 +8,8 @@ Current AI services are: OpenAI's GPT-4.
 Future AI services: Anthropic's Claude, LLaMA, and GEMMA models.
 */
 
-use std::collections::HashMap;
 
-pub enum Roles {
-    Assistant,
-    User,
-    System,
-}
-pub struct Message {
-    pub id: i32,
-    pub thread_id: i32,
-    pub content: String,
-    pub role: Roles,
-    // Other message metadata fields
-}
 
-struct Thread {
-    id: i32,
-    conversation_id: i32,
-    thread_participants: Vec<String>,
-}
-struct Prompts {
-    gpt_prompt: String,
-    claude_prompt: String,
-    llama_prompt: String
-}
-
-enum SysPromptMode {
-    GenericPrompt,
-    TargetedPrompts(Prompts)
-}
-struct AssistantConfig {
-    id: i32,
-    name: String,
-    sys_prompt_mode: SysPromptMode,
-
-}
-struct Conversation {
-    id: i32,
-    participants: Vec<String>,
-}
-
-pub struct ConversationData {
-    pub conversations: HashMap<i32, Conversation>,
-    pub threads: HashMap<i32, Vec<Thread>>,
-    pub messages: HashMap<i32, Vec<Message>>,
-}
 
 //paste here
 
@@ -63,35 +19,7 @@ pub trait AIAssistant {
     fn set_config(&mut self, config: AssistantConfig);
     fn get_system_prompt(&self) -> String;
 }
-impl AIAssistant for GPTAssistant {
-    fn generate_response(&self, prompt: &str) -> String {
-        // Implementation for generating response using GPT
-        // Use self.get_system_prompt() to get the appropriate system prompt
-        // Make API calls to OpenAI's GPT model
-        // Return the generated response as a String
-        unimplemented!()
-    }
 
-    fn get_config(&self) -> &AssistantConfig {
-        &self.config
-    }
-
-    fn set_config(&mut self, config: AssistantConfig) {
-        self.config = config;
-    }
-
-    fn get_system_prompt(&self) -> String {
-        match &self.config.sys_prompt_mode {
-            SysPromptMode::GenericPrompt => "You are a helpful AI assistant.".to_string(),
-            SysPromptMode::TargetedPrompts(prompts) => prompts.gpt_prompt.clone(),
-        }
-    }
-}
-
-struct GPTAssistant {
-    config: AssistantConfig,
-    // Other GPT-specific fields and methods
-}
 
 
 struct ClaudeAssistant {

@@ -1,0 +1,5 @@
+- where do I want to handle data access in order to maintain separation of concerns?
+	 - instantiate a conversation
+	 - check out a thread
+	 - 
+- The generate response function is a method defined on the trait AIAssistant. It takes a mutable reference to the current active thread in a conversation, and after it returns the thread. 
